@@ -28,7 +28,7 @@ var pwdGenerator = {
   "useNumbers" : true,
   "useLower" : true,
   "useUpper" : true,
-  "pwdLength" : 8, // default to generally accepted min
+  "pwdLength" : 12, // default to generally accepted min
 
   generatePassword: function() {
     var whichCharset = []; // array to store the indexes of the charset arrays in use
@@ -76,11 +76,12 @@ var pwdGenerator = {
 
 // Write password to the #password input
 function writePassword() {
-  pwdGenerator.useSpecial = confirm("Do you want to include special characters?");
-  pwdGenerator.useNumbers = confirm("Do you want to include numbers?");
-  pwdGenerator.useLower = confirm("Do you want to include lower case letters?");
-  pwdGenerator.useUpperSpecial = confirm("Do you want to include upper case letters?");
-  pwdGenerator.pwdLength = prompt("Enter password length:");
+  // pwdGenerator.useSpecial = confirm("Do you want to include special characters?");
+  pwdGenerator.useSpecial = document.getElementById("chkSpecial").checked;
+  pwdGenerator.useNumbers = document.getElementById("chkNumbers").checked;
+  pwdGenerator.useLower = document.getElementById("chkLower").checked;
+  pwdGenerator.useUpperSpecial = document.getElementById("chkUpper").checked;
+  pwdGenerator.pwdLength = document.getElementById("sldLength").value;
 
   var password = pwdGenerator.generatePassword();
   // var password = generatePassword(includeSpecial, includeNumbers, includeLower, includeUpper, pwdLength);

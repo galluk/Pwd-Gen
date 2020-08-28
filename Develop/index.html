@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
+    <!-- Bring in the bootstrap CSS via the Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -16,6 +18,38 @@
         <div class="card-header">
           <h2>Generate a Password</h2>
         </div>
+        <form>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chkSpecial" checked>
+            <label class="form-check-label" for="chkSpecial">
+              Include special characters
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chkNumbers" checked>
+            <label class="form-check-label" for="chkNumbers">
+              Include numbers
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chkLower" checked>
+            <label class="form-check-label" for="chkLower">
+              Include lower case letters
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="chkUpper" checked>
+            <label class="form-check-label" for="chkUpper">
+              Include upper case letters
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="formControlRange">Password length:</label>
+            <div class="range-field">
+              <input type="range" min="8" max="128" value="12" id="sldLength"/>
+            </div>
+          </div>
+        </form>
         <div class="card-body">
           <textarea
             readonly
