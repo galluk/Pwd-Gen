@@ -1,3 +1,5 @@
+<!-- @format -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,50 +21,47 @@
           <h2>Generate a Password</h2>
         </div>
         <form>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="chkSpecial" checked>
-            <label class="form-check-label" for="chkSpecial">
-              Include special characters
-            </label>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input class="form-check-input" type="checkbox" value="" id="chkSpecial" checked />
+              <label class="form-check-label" for="chkSpecial">Include special characters</label>
+            </div>
+            <div class="form-group col-md-6">
+              <input class="form-check-input" type="checkbox" value="" id="chkNumbers" checked />
+              <label class="form-check-label" for="chkNumbers">Include numbers</label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="chkNumbers" checked>
-            <label class="form-check-label" for="chkNumbers">
-              Include numbers
-            </label>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <input class="form-check-input" type="checkbox" value="" id="chkLower" checked />
+              <label class="form-check-label" for="chkLower">Include lower case letters</label>
+            </div>
+            <div class="form-group col-md-6">
+              <input class="form-check-input" type="checkbox" value="" id="chkUpper" checked />
+              <label class="form-check-label" for="chkUpper">Include upper case letters</label>
+            </div>
           </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="chkLower" checked>
-            <label class="form-check-label" for="chkLower">
-              Include lower case letters
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="chkUpper" checked>
-            <label class="form-check-label" for="chkUpper">
-              Include upper case letters
-            </label>
-          </div>
-          <div class="form-group">
-            <label for="formControlRange">Password length:</label>
-            <div class="range-field">
-              <input type="range" min="8" max="128" value="12" id="sldLength"/>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="sldLength">Password length:</label>
+              <form class="range-field">
+                <input type="range" min="8" max="128" value="12" id="sldLength" />
+              </form>
+            </div>
+            <div class="form-group col-md-6">
+              <p><span id="sldValue">12  characters</span></p>
             </div>
           </div>
         </form>
         <div class="card-body">
-          <textarea
-            readonly
-            id="password"
-            placeholder="Your Secure Password"
-            aria-label="Generated Password"
-          ></textarea>
+          <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
         </div>
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
       </div>
     </div>
+    <script src="../Assets/ArraysList.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
