@@ -1,5 +1,7 @@
-// get access to the button on the main page
+// get access to elements on the main page
 var generateBtn = document.querySelector("#generate");
+var slider = document.querySelector("#sldLength");
+var valueText = document.querySelector("#sldValue");
 
 // set up consts to allow a var array to store which character sets are being used
 const SPECIAL_CHARARRAY_INDEX = 0;
@@ -7,6 +9,7 @@ const NUMBER_CHARARRAY_INDEX = 1;
 const LOWER_CHARARRAY_INDEX = 2;
 const UPPER_CHARARRAY_INDEX = 3;
 
+// create object to generate the password
 var pwdGenerator = {
   "useSpecial": true,
   "useNumbers": true,
@@ -18,10 +21,18 @@ var pwdGenerator = {
     var whichCharset = []; // array to store the indexes of the charset arrays in use
 
     // add charset array index to this array for each charset being used
-    if (this.useSpecial) { whichCharset.push(SPECIAL_CHARARRAY_INDEX); }
-    if (this.useNumbers) { whichCharset.push(NUMBER_CHARARRAY_INDEX); }
-    if (this.useLower) { whichCharset.push(LOWER_CHARARRAY_INDEX); }
-    if (this.useUpper) { whichCharset.push(UPPER_CHARARRAY_INDEX); }
+    if (this.useSpecial) { 
+      whichCharset.push(SPECIAL_CHARARRAY_INDEX);
+    }
+    if (this.useNumbers) {
+       whichCharset.push(NUMBER_CHARARRAY_INDEX); 
+      }
+    if (this.useLower) {
+      whichCharset.push(LOWER_CHARARRAY_INDEX); 
+    }
+    if (this.useUpper) {
+       whichCharset.push(UPPER_CHARARRAY_INDEX); 
+    }
 
     var pwd = "", pwdChar = "";
     // loop through for however many chars are needed, getting a random char each time
@@ -30,7 +41,7 @@ var pwdGenerator = {
       // randomly get the charset to use 
       var charsetIndex = whichCharset[Math.floor(Math.random() * whichCharset.length)];
 
-      // get the random char from selected charset
+      // get a random char from selected charset
       switch (charsetIndex) {
         case SPECIAL_CHARARRAY_INDEX:
           pwdChar = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
@@ -66,9 +77,10 @@ function writePassword() {
   pwdGenerator.useLower = document.getElementById("chkLower").checked;
   pwdGenerator.useUpper = document.getElementById("chkUpper").checked;
   pwdGenerator.pwdLength = document.getElementById("sldLength").value;
-
+  
   var passwordText = document.querySelector("#password");
   var password = "";
+  
   // make sure the user has selected at least one option
   if (!pwdGenerator.useSpecial && !pwdGenerator.useNumbers && !pwdGenerator.useLower && !pwdGenerator.useUpper) {
     alert("At least one Include option needs to be selected.");
@@ -78,7 +90,7 @@ function writePassword() {
     // generate the password
     password = pwdGenerator.generatePassword();
   }
-
+  
   // display it on screen for the user
   passwordText.value = password;
 }
@@ -87,8 +99,6 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // show slider value for length of password
-var slider = document.getElementById("sldLength");
-var valueText = document.getElementById("sldValue");
 slider.oninput = function () {
-  valueText.innerHTML = this.value + " characters";
+  valueText.textContent = this.value + " characters";
 }
