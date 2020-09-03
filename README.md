@@ -18,6 +18,7 @@ The provided ArraysList.js contains an array of valid characters for each charac
 * [VScode](https://code.visualstudio.com/) - The editor of choice
 
 #### Initial interface
+![Screenshot of Password generator](https://github.com/galluk/Pwd-Gen/blob/master/screenshot.png)
 <hr>
 
 #### ToDo
